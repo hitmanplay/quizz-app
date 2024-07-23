@@ -1,0 +1,31 @@
+*{
+    background-color: white;
+}
+.selects{
+    border: 1px solid black;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background: white;
+}
+
+.submit{
+    border-radius: 16px;
+    border: transparent;
+    background-color: rgb(0, 187, 0);
+    color: white;
+    padding: 5px 0;
+    min-width: 100px;
+    margin-top: 10px;
+    margin-left: 100px;
+    cursor: pointer;
+}
+
+.submit:hover{
+    background-color: green;
+}
