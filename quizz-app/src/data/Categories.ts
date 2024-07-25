@@ -1,4 +1,4 @@
-const Categories = [
+const Categories: {category: string; value: number}[]= [
     {category: "General Knowledge",value: 9},
     { category: "Books", value: 10 },
     { category: "Films", value: 11 },

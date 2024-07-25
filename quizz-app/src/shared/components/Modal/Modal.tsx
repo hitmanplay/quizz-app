@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 import cls from './Modal.module.css'
 import Form from '../Form/Form';
 
-const Modal = ({children, visible, setVisible, fetchQuestions}) => {
+interface IModal{
+    visible: boolean,
+    setVisible: (vis: boolean) => void,
+}
+
+const Modal: FC<IModal> = ({ visible, setVisible}) => {
     const rootClasses = [cls.modal]
     
     if(visible){
@@ -11,7 +16,7 @@ const Modal = ({children, visible, setVisible, fetchQuestions}) => {
     return(
         <div className={rootClasses.join(' ')} onClick={() => setVisible(false)}>
             <div className={cls.modalContent} onClick={(e) => e.stopPropagation()}>
-                <Form fetchQuestions={fetchQuestions}/>
+                <Form />
             </div>
         </div>
     );

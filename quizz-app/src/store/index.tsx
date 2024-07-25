@@ -1,15 +1,30 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, FC, PropsWithChildren, SetStateAction, useContext, useState } from "react";
 import axios from 'axios'
 
-export const GlobalContext = createContext();
+interface IGlobalContext {
+  questions: string[],
+  score: number,
+  setScore: React.Dispatch<SetStateAction<number>>,
+  handleReset: () => void,
+  fetchQuestions: () => void
+}
+
+
+export const GlobalContext = createContext<IGlobalContext>({
+  questions: [],
+  score: 0,
+  setScore: () => {},
+  handleReset: () => {},
+  fetchQuestions: () => {},
+});
 
 export const useStore = () => {
     return useContext(GlobalContext);
 }
 
-export const GlobalStore = ({ children }) => {
-    const [questions, setQuestions] = useState([])
-    const [score, setScore] = useState(0);
+export const GlobalStore: FC<PropsWithChildren<unknown>> = ({ children }) => {
+    const [questions, setQuestions] = useState<[]>([])
+    const [score, setScore] = useState<number>(0);
 
     console.log(questions)
     

@@ -1,8 +1,8 @@
-import React, { useMemo, useState } from 'react';
+import React, { FC, useMemo, useState } from 'react';
 import { useStore } from '../../store';
 import { useNavigate } from 'react-router-dom';
 
-const shuffleArray = (array) => {
+const shuffleArray = (array: []) => {
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
         var temp = array[i];
@@ -14,7 +14,7 @@ const QuizzPage = () => {
     const navigate = useNavigate();
     const [currIndex, setCurrIndex] = useState(0);
     const [answer, setAnswer] = useState(null);
-    const { questions, setScore } = useStore();
+    const { questions, setScore } = useStore(); // Не понимаю
     const currQuestion = questions[currIndex];
 
     const currAnswers = useMemo(() => {
@@ -28,9 +28,9 @@ const QuizzPage = () => {
         return result
     },[currQuestion])
 
-    const handleAnswerCheck = () => {
+    const handleAnswerCheck = (): void => {
         if (currQuestion?.correct_answer === answer){
-            setScore((prev) => prev + 1)
+            setScore((prev: number) => prev + 1)
         }
         if (currIndex === questions.length - 1){
             navigate('/result')
