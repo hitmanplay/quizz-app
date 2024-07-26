@@ -1,12 +1,18 @@
 import React, { createContext, FC, PropsWithChildren, SetStateAction, useContext, useState } from "react";
 import axios from 'axios'
 
+type QuestionType = {
+  incorrect_answers: string[],
+  correct_answer: string,
+  question: string
+}
+
 interface IGlobalContext {
-  questions: string[],
+  questions: QuestionType[],
   score: number,
   setScore: React.Dispatch<SetStateAction<number>>,
   handleReset: () => void,
-  fetchQuestions: () => void
+  fetchQuestions: (category: string, difficulty: string) => void
 }
 
 
@@ -22,7 +28,7 @@ export const useStore = () => {
     return useContext(GlobalContext);
 }
 
-export const GlobalStore: FC<PropsWithChildren<unknown>> = ({ children }) => {
+export const GlobalStore: FC<PropsWithChildren> = ({ children }) => {
     const [questions, setQuestions] = useState<[]>([])
     const [score, setScore] = useState<number>(0);
 

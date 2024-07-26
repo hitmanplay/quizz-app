@@ -6,7 +6,7 @@ import { useStore } from '../../../store';
 
 
 const Form = () => {
-      const [category, setCategory] = useState<string | undefined | number>(27);
+      const [category, setCategory] = useState<string>('27');
       const [difficulty, setDifficulty] = useState<string>('easy')
       const navigate = useNavigate();
       const { fetchQuestions } = useStore();
