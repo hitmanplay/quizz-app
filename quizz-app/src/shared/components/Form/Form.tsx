@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
-import cl from './Form.module.css'
+import './Form.css'
 import Categories from '../../../data/Categories';
 import { useStore } from '../../../store';
 
@@ -20,19 +20,19 @@ const Form = () => {
 
     return(
         <form action="">
-            <label htmlFor="" className={cl.form}>Choose Difficult
-                <select name="" id="" className={cl.selects} onChange={(e) => setDifficulty(e.target.value)} value={difficulty}>
+            <label htmlFor="" className="form">Choose Difficult
+                <select name="" id="" className="selects" onChange={(e) => setDifficulty(e.target.value)} value={difficulty}>
                     <option value="easy" key="Easy">Easy</option>
                     <option value="medium" key="Medium">Medium</option>
                     <option value="hard" key="Hard">Hard</option>
                 </select>
             </label>
             <label htmlFor="">Choose Theme
-                <select name="" id="" className={cl.selects} onChange={(e) => setCategory(e.target.value)} value={category}>
+                <select name="" id="" className="selects" onChange={(e) => setCategory(e.target.value)} value={category}>
                 {Categories.map(el =><option value={el.value} key={el.category}>{el.category}</option> )}
                 </select>
             </label>
-            <button className={cl.submit} onClick={handleSubmit}>Submit</button>
+            <button className="submit" onClick={handleSubmit}>Submit</button>
         </form>
     );
 }

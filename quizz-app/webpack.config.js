@@ -5,6 +5,7 @@ const webpack = require("webpack");
 module.exports = (env) => {
     const config = {
         mode: env.mode ?? 'development',
+        devtool: 'inline-source-map',
         entry: path.resolve(__dirname, 'src', 'index.tsx'),
         output: {
             path: path.resolve(__dirname, 'build'),
@@ -22,14 +23,22 @@ module.exports = (env) => {
                 use: 'ts-loader',
                 exclude: /node_modules/,
               },
-              { test: /\.css$/, 
-                use: ['style-loader', 'css-loader'], 
+              {
+                 test: /\.css$/, 
+                 exclude: /\.module\.css$/,
+                 use: ['style-loader', 'css-loader'],
               },
             ],
           },
           resolve: {
             extensions: ['.tsx', '.ts', '.js'],
+            alias: {
+              '@shared': path.resolve(__dirname, './src/shared'),
+              '@pages': path.resolve(__dirname, './src/Pages'),
+              '@src': path.resolve(__dirname, './src'),
+              '@packageSrc': path.resolve(__dirname, './package.json'),
+            },
           },
     }
-    return config
+  return config
 }

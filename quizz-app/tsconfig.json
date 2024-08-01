@@ -1,25 +1,29 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "types": [
-      "node"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "outDir": "./build/",
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "CommonJS",
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "ES6",
+    "jsx": "react",
+    "allowJs": true,
+    "baseUrl": "./",
     "moduleResolution": "node",
+    "esModuleInterop": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "react-jsx"
+    "sourceMap": true,
+    "downlevelIteration": true,
+    "skipLibCheck": true,
+    "useUnknownInCatchVariables": false,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@shared/*": ["src/shared/*"],
+      "@pages/*": ["src/Pages/*"],
+      "@src/*": ["src/*"],
+      "@packageSrc": ["package.json"]
+    },
+    "lib": ["dom", "dom.iterable", "esnext"]
   },
-  "include": ["src/**/*"]
+  "include": ["src"]
 }

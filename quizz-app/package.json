@@ -25,7 +25,7 @@
     "webpack-dev-server": "5.0.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "webpack serve --env mode=development",
     "build": "react-scripts build",
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production"
