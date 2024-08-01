@@ -32,7 +32,6 @@ export const GlobalStore: FC<PropsWithChildren> = ({ children }) => {
     const [questions, setQuestions] = useState<[]>([])
     const [score, setScore] = useState<number>(0);
 
-    console.log(questions)
     
     const fetchQuestions = async (category = "", difficulty = "") => {
         const { data } = await axios.get(

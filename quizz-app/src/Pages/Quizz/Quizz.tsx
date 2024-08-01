@@ -39,8 +39,6 @@ const QuizzPage = () => {
         setAnswer(null)
     }
 
-    console.log(currQuestion)
-
     return(
         <div>
             <h1>{currQuestion?.question}</h1>
