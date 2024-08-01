@@ -1,9 +1,9 @@
-import path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import webpack from "webpack";
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require("webpack");
 
-export default (env: any) => {
-    const config: webpack.Configuration = {
+module.exports = (env) => {
+    const config = {
         mode: env.mode ?? 'development',
         entry: path.resolve(__dirname, 'src', 'index.tsx'),
         output: {
@@ -18,9 +18,12 @@ export default (env: any) => {
         module: {
             rules: [
               {
-                test: /\.tsx?$/,
+                test: /\.(ts|tsx)?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/,
+              },
+              { test: /\.css$/, 
+                use: ['style-loader', 'css-loader'], 
               },
             ],
           },
